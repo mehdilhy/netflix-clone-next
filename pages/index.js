@@ -6,6 +6,10 @@ import requests from "../Components/requests";
 export default function Home() {
   return (
     <div className="bg-black">
+      <meta
+        name="google-site-verification"
+        content="GrVU-DMFX9QnLlc0VrmY85rKEneEmxoGP6ycD4VHA7M"
+      />
       <Nav />
       <Banner />
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
