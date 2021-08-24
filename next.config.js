@@ -6,5 +6,6 @@ module.exports = {
       "mir-s3-cdn-cf.behance.net",
       "image.tmdb.org",
     ],
+    disableStaticImages: true,
   },
 };

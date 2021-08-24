@@ -2,12 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import requests from "./requests";
 import Image from "next/image";
-import {
-  AiFillPlayCircle,
-  AiFillInfoCircle,
-  AiFillPlaySquare,
-  AiOutlinePlayCircle,
-} from "react-icons/ai";
+
+import { AiFillPlayCircle, AiFillInfoCircle } from "react-icons/ai";
 import { Button } from "@chakra-ui/react";
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -17,8 +13,9 @@ function Banner() {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
       const randomNumber = Math.floor(
-        Math.random() * request.data.results.length - 4
+        Math.random() * request.data.results.length - 1
       );
+      console.log(randomNumber);
       if (request.data.results[randomNumber]) {
         const test = await axios.get(
           `/tv/${request.data.results[randomNumber].id}/images?api_key=660e0e34ec05807e0615efd51524ecda`
@@ -66,7 +63,7 @@ function Banner() {
           />
         )}
         <h1 className="w-[100%] md:w-[150%] text-lg md:text-xl lg:text-2xl max-w-lg h-[30%] font-semibold ">
-          {truncate(movie?.overview, 150)}
+          {truncate(movie?.overview, 100)}
         </h1>
         <div className="space-x-4">
           <Button

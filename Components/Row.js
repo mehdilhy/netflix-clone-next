@@ -1,6 +1,6 @@
+import { Image } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
-import Image from "next/image";
 const base_URL = "https://image.tmdb.org/t/p/original/";
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
@@ -18,7 +18,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
       <div className="flex overflow-y-hidden overflow-x-scroll p-5 scrollbar-hide">
         {/* row poster */}
         {movies.map((movie) => (
-          <img
+          <Image
             key={movie.id}
             className={
               isLargeRow
