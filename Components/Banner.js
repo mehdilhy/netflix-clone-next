@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import requests from "./requests";
-import Image from "next/image";
+import { Image } from "@chakra-ui/react";
 
 import { AiFillPlayCircle, AiFillInfoCircle } from "react-icons/ai";
 import { Button } from "@chakra-ui/react";
@@ -39,12 +39,11 @@ function Banner() {
 
   return (
     <header
-      className="bg-cover bg-center w-[100%] text-white min-h-[75%] bg-no-repeat"
+      className="bg-cover bg-center w-[100%] text-white min-h-[50%] bg-no-repeat"
       style={{
         backgroundImage: `url(
         "https://image.tmdb.org/t/p/original/${movie?.backdrop_path}"
         )`,
-        boxShadow: "inherit",
       }}
     >
       <div className="ml-[4%] pt-[20%] pb-[20%] space-y-5 ">
@@ -56,10 +55,8 @@ function Banner() {
           <Image
             src={`https://image.tmdb.org/t/p/original/${logo}`}
             alt=""
-            width="550%"
-            height="100%"
-            className=" pl-10"
-            objectPosition="fit"
+            height="80%"
+            className=" pl-10 w-[70%] sm:w-[70%] md:w-[30%]"
           />
         )}
         <h1 className="w-[100%] md:w-[150%] text-lg md:text-xl lg:text-2xl max-w-lg h-[30%] font-semibold ">
@@ -71,6 +68,7 @@ function Banner() {
             bgColor="white"
             color="black"
             size="lg"
+            className="hover:bg-red-500"
           >
             Play
           </Button>
@@ -84,8 +82,6 @@ function Banner() {
           </Button>
         </div>
       </div>
-
-      <div className="banner--fadeBottom" />
     </header>
   );
 }
